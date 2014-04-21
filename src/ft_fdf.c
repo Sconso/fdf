@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 20:23:33 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/22 00:10:46 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/22 00:30:47 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 #include <mlx.h>
 #include <math.h>
 
+
+#include <unistd.h>
 #include <stdio.h>
 
 t_vertex		to_vertex(int x, int y, int z, int color)
@@ -82,15 +84,14 @@ void		draw_map(t_mdata *mdata)
 					  to_vertex(posx2, posy2, 0, 65000),
 					  mdata);
 
-			posx1 = x * ESPACE + (mdata->w / 7) + (y * ANGLE);
+			posx1 = x * ESPACE + (mdata->w / 7) + (y * ANGLE) + (mdata->map[y][x] * HAUTEUR);
 			posy1 = (y * ESPACE) + (mdata->h / 6) - (mdata->map[y][x] * HAUTEUR);
-			posx2 = x * ESPACE + (mdata->w / 7) + ((y + 1) * ANGLE);
+			posx2 = x * ESPACE + (mdata->w / 7) + ((y + 1) * ANGLE) + (mdata->map[y + 1][x] * HAUTEUR);
 			posy2 = ((y + 1) * ESPACE) + (mdata->h / 6) - (mdata->map[y + 1][x] * HAUTEUR);
 
 			draw_line(to_vertex(posx1, posy1, 0, 65000),
 					  to_vertex(posx2, posy2, 0, 65000),
 					  mdata);
-
 /*			mlx_pixel_put(mdata->mptr, mdata->wptr, x * ESPACE + (mdata->w / 3), y * ESPACE + (mdata->h / 6), 65000);*/
 		}
 	}
