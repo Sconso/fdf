@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 21:12:33 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/21 21:30:26 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/23 22:14:39 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <ft_fc_print.h>
 #include <get_next_line.h>
 #include <stdlib.h>
-
+#include <stdio.h>
 static int		get_elem_nb(char *str)
 {
 	int			nb;
@@ -64,7 +64,10 @@ int				**create_matrix(int fd)
 
 	lines = 0;
 	while ((actline = get_next_line(fd)))
+	{
+		printf("1 = %s\n", actline);
 		++lines;
+	}
 	matrix = (int **)malloc((lines + 1) * sizeof(int *));
 	ft_assert(matrix != NULL, "Malloc error on matrix, exiting...\n");
 	matrix[lines] = NULL;
@@ -80,6 +83,8 @@ int				**fill_matrix(int fd, int **matrix)
 	i = 0;
 	while ((line = get_next_line(fd)))
 	{
+		printf("2 = %s\n", line);
+
 		elems = get_elem_nb(line);
 		matrix[i] = (int *)malloc((elems + 1) * sizeof(int));
 		ft_assert(matrix[i] != NULL, "Malloc error on matrix, exiting...\n");

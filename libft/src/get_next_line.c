@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 19:12:10 by sconso            #+#    #+#             */
-/*   Updated: 2014/01/19 22:05:47 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/23 23:56:59 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,7 @@ char				*get_next_line(int const fd)
 	if (fd < 0 || BUFF_SIZE < 1)
 		return (ft_exit(&tmp));
 	tmp = (tmp ? tmp : ft_strdup(""));
-	buf = ft_strnew(BUFF_SIZE + 1);
-	if (!buf)
+	if (!(buf = ft_strnew(BUFF_SIZE + 1)))
 		return (ft_exit(&tmp));
 	while (!(size = ft_strchr(tmp, '\n')) && (ret = read(fd, buf, BUFF_SIZE)))
 	{
@@ -41,11 +40,12 @@ char				*get_next_line(int const fd)
 		tmp = ft_strcleanjoin(tmp, buf);
 	}
 	free(buf);
-	if (tmp[0] && (size || (size = ft_strrchr(tmp, 0))))
+	if (tmp[0] && (size || (size = ft_strchr(tmp, 0))))
 	{
 		buf = ft_strsub(tmp, 0, size - tmp);
+		size = (size[0] ? ft_strdup(size + 1) : ft_strdup(""));
 		free(tmp);
-		tmp = (size[0] ? ft_strdup(size + 1) : ft_strdup(""));
+		tmp = size;
 		return (buf);
 	}
 	return (ft_exit(&tmp));
