@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 20:39:26 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/23 18:04:31 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/24 00:14:39 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ typedef struct		s_mdata
 {
 	void			*mptr;
 	void			*wptr;
+	void			*iptr;
 	int				w;
 	int				h;
 	int				**map;

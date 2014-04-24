@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 20:23:33 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/24 00:01:36 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/24 00:15:36 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -204,6 +204,7 @@ t_mdata			*init_mlx(int **map, int userwidth, int userheight)
 	mdata->map = map;
 	mdata->mptr = mlx_init();
 	mdata->wptr = mlx_new_window(mdata->mptr, mdata->w, mdata->h, "FDF");
+	mdata->iptr = mlx_new_image(mdata->mptr, mdata->w, mdata->h);
 	mdata->espace = ESPACE;
 	mdata->angle = ANGLE;
 	mdata->hauteur = HAUTEUR;
