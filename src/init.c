@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/27 19:40:46 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 20:10:46 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 22:21:59 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,18 @@ static t_keys	*init_keys(void)
 	keys->less_angle = 0;
 	keys->zoom = 0;
 	keys->unzoom = 0;
+	keys->rot_z = 0;
 	return (keys);
+}
+
+static void		reset_init(t_mdata *mdata, float *espace, float *w, float *h)
+{
+	*espace = ESPACE;
+	*w = 0;
+	*h = 0;
+	mdata->angle = ANGLE;
+	mdata->hauteur = HAUTEUR;
+	mdata->shadows = 0;
 }
 
 void			reset_values(t_mdata *mdata)
@@ -41,13 +52,9 @@ void			reset_values(t_mdata *mdata)
 	float		height;
 	int			i;
 	int			j;
+	float		espace;
 
-	mdata->espace = ESPACE;
-	mdata->angle = ANGLE;
-	mdata->hauteur = HAUTEUR;
-	mdata->shadows = 0;
-	width = 0;
-	height = 0;
+	reset_init(mdata, &espace, &width, &height);
 	i = -1;
 	while (mdata->map[++i])
 	{
@@ -57,10 +64,14 @@ void			reset_values(t_mdata *mdata)
 			;
 		width = (j > width ? j : width);
 	}
-	while (width * mdata->espace > mdata->w || height * mdata->espace > mdata->h)
-		mdata->espace--;
-	mdata->x = (mdata->w / 2) - (width * mdata->espace / 2);
-	mdata->y = (mdata->h / 2) - (height * mdata->espace / 2);
+	while (width * espace > mdata->w || height * espace > mdata->h)
+		espace--;
+	mdata->espace_x = espace;
+	mdata->espace_y = espace;
+	mdata->sx = width;
+	mdata->sy = height;
+	mdata->x = (mdata->w / 2) - (width * mdata->espace_x / 2);
+	mdata->y = (mdata->h / 2) - (height * mdata->espace_x / 2);
 }
 
 int				**ft_init(char *map)

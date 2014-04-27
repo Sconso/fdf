@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 20:39:26 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 19:43:25 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 21:11:33 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,14 @@
 # define NUMPAD_MINUS (65453)
 # define NUMPAD_0 (65456)
 # define NUMPAD_1 (65457)
+# define NUMPAD_2 (65458)
+# define NUMPAD_3 (65459)
+# define NUMPAD_4 (65460)
+# define NUMPAD_5 (65461)
+# define NUMPAD_6 (65462)
+# define NUMPAD_7 (65463)
+# define NUMPAD_8 (65464)
+# define NUMPAD_9 (65465)
 
 # include <structs.h>
 

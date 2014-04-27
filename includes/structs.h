@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/27 19:42:17 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 19:42:39 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 21:43:32 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct		s_keys
 	char			less_angle;
 	char			zoom;
 	char			unzoom;
+	char			rot_z;
 }					t_keys;
 
 typedef struct		s_mdata
@@ -37,11 +38,14 @@ typedef struct		s_mdata
 	int				w;
 	int				h;
 	int				**map;
-	float			espace;
+	float			espace_x;
+	float			espace_y;
 	float			angle;
 	float			hauteur;
 	float			x;
 	float			y;
+	int				sx;
+	int				sy;
 	int				bpp;
 	int				sizeline;
 	int				endian;

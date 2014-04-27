@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/27 19:40:59 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 19:57:00 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 22:20:08 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,18 @@ static int		one_shot(int keycode, t_mdata *mdata)
 	return (1);
 }
 
+static void		move_keys(int keycode, t_mdata *mdata)
+{
+	if (keycode == RIGHT)
+		mdata->keys->more_angle = 1;
+	else if (keycode == LEFT)
+		mdata->keys->less_angle = 1;
+	if (keycode == UP)
+		mdata->keys->more_height = 1;
+	else if (keycode == DOWN)
+		mdata->keys->less_height = 1;
+}
+
 int				key_release(int keycode, t_mdata *mdata)
 {
 	if (keycode == RIGHT)
@@ -61,6 +73,8 @@ int				key_release(int keycode, t_mdata *mdata)
 		mdata->keys->left = 0;
 	else if (keycode == D)
 		mdata->keys->right = 0;
+	if (keycode == NUMPAD_8 || keycode == NUMPAD_2)
+		mdata->keys->rot_z = 0;
 	return (0);
 }
 
@@ -68,14 +82,7 @@ int				key_press(int keycode, t_mdata *mdata)
 {
 	if (one_shot(keycode, mdata))
 		return (0);
-	if (keycode == RIGHT)
-		mdata->keys->more_angle = 1;
-	else if (keycode == LEFT)
-		mdata->keys->less_angle = 1;
-	if (keycode == UP)
-		mdata->keys->more_height = 1;
-	else if (keycode == DOWN)
-		mdata->keys->less_height = 1;
+	move_keys(keycode, mdata);
 	if (keycode == PLUS || keycode == NUMPAD_PLUS)
 		mdata->keys->zoom = 1;
 	else if (keycode == MINUS || keycode == NUMPAD_MINUS)
@@ -88,5 +95,9 @@ int				key_press(int keycode, t_mdata *mdata)
 		mdata->keys->left = 1;
 	else if (keycode == D)
 		mdata->keys->right = 1;
+	if (keycode == NUMPAD_8)
+		mdata->keys->rot_z = 1;
+	else if (keycode == NUMPAD_2)
+		mdata->keys->rot_z = -1;
 	return (0);
 }

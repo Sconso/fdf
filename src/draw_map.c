@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/27 19:37:10 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 19:37:16 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 22:04:43 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static void		draw_map_x(t_mdata *mdata, int x, int y)
 	t_vertex	v1;
 	t_vertex	v2;
 
-	v1.x = (x * mdata->espace) + mdata->x;
-	v1.y = (y * mdata->espace) + mdata->y;
-	v2.x = ((x + 1) * mdata->espace) + mdata->x;
-	v2.y = (y * mdata->espace) + mdata->y;
+	v1.x = (x * mdata->espace_x) + mdata->x;
+	v1.y = (y * mdata->espace_y) + mdata->y;
+	v2.x = ((x + 1) * mdata->espace_x) + mdata->x;
+	v2.y = (y * mdata->espace_y) + mdata->y;
 	v1.x += y * mdata->angle;
 	v1.y -= mdata->map[y][x] * mdata->hauteur;
 	v2.x += y * mdata->angle;
@@ -38,10 +38,10 @@ static void		draw_map_y(t_mdata *mdata, int x, int y)
 	t_vertex	v1;
 	t_vertex	v2;
 
-	v1.x = (x * mdata->espace) + mdata->x;
-	v1.y = (y * mdata->espace) + mdata->y;
-	v2.x = (x * mdata->espace) + mdata->x;
-	v2.y = ((y + 1) * mdata->espace) + mdata->y;
+	v1.x = (x * mdata->espace_x) + mdata->x;
+	v1.y = (y * mdata->espace_y) + mdata->y;
+	v2.x = (x * mdata->espace_x) + mdata->x;
+	v2.y = ((y + 1) * mdata->espace_y) + mdata->y;
 	v1.x += y * mdata->angle;
 	v1.y -= mdata->map[y][x] * mdata->hauteur;
 	v2.x += (y + 1) * mdata->angle;

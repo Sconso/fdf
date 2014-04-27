@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/27 19:37:35 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 19:57:55 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 21:10:23 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void		debug(t_mdata *md)
 	mlx_string_put(md->mptr, md->wptr, md->w - 120, 50, 0xFF0000, "X: ");
 	mlx_string_put(md->mptr, md->wptr, md->w - 120, 60, 0xFF0000, "Y: ");
 	mlx_string_put(md->mptr, md->wptr, md->w - 40, 20, 0xFF0000,
-					ft_itoa(md->espace));
+					ft_itoa(md->espace_x));
 	mlx_string_put(md->mptr, md->wptr, md->w - 40, 30, 0xFF0000,
 					ft_itoa(md->angle));
 	mlx_string_put(md->mptr, md->wptr, md->w - 40, 40, 0xFF0000,

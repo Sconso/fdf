@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/27 19:36:40 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 19:36:58 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 22:42:26 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,15 @@ static void		fill_image(t_mdata *mdata, float x, float y, unsigned int color)
 		return ;
 	color = mlx_get_color_value(mdata->mptr, color);
 	r = ((int)x * 4) + ((int)y * mdata->sizeline);
-/* 		data[(i + 50) * mdata->sizeline + 2 * 500] = (color & 0xFF); */
 	mdata->idata[r] = (color & 0xFF);
 	mdata->idata[r + 1] = (color & 0xFF00) >> 8;
 	mdata->idata[r + 2] = (color & 0xFF0000) >> 16;
-	if (mdata->shadows)
+	if ((i = 0) || mdata->shadows)
 	{
-		i = 0;
-		while (++i < ESPACE)
+		while (++i < mdata->espace_x - 1)
 		{
 			j = 0;
-			while (++j < ESPACE)
+			while (++j < mdata->espace_y - 1)
 			{
 				r = (((int)x + i) * 4) + (((int)y + j) * mdata->sizeline);
 				mdata->idata[r] = (0x000000 & 0xFF);
