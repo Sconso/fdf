@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/04/27 14:39:06 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/04/27 14:44:47 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/04/27 19:40:46 by sconso            #+#    #+#             */
+/*   Updated: 2014/04/27 20:10:46 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,30 @@ static t_keys	*init_keys(void)
 
 void			reset_values(t_mdata *mdata)
 {
+	float		width;
+	float		height;
+	int			i;
+	int			j;
+
 	mdata->espace = ESPACE;
 	mdata->angle = ANGLE;
 	mdata->hauteur = HAUTEUR;
+	mdata->shadows = 0;
+	width = 0;
+	height = 0;
+	i = -1;
+	while (mdata->map[++i])
+	{
+		++height;
+		j = -1;
+		while (mdata->map[i][++j] != -999)
+			;
+		width = (j > width ? j : width);
+	}
+	while (width * mdata->espace > mdata->w || height * mdata->espace > mdata->h)
+		mdata->espace--;
+	mdata->x = (mdata->w / 2) - (width * mdata->espace / 2);
+	mdata->y = (mdata->h / 2) - (height * mdata->espace / 2);
 }
 
 int				**ft_init(char *map)
@@ -69,13 +90,9 @@ t_mdata			*init_mlx(int **map, int userwidth, int userheight)
 	mdata->wptr = mlx_new_window(mdata->mptr, mdata->w, mdata->h, "FDF");
 	mdata->iptr = NULL;
 	mdata->keys = init_keys();
-	mdata->espace = ESPACE;
-	mdata->angle = ANGLE;
-	mdata->hauteur = HAUTEUR;
 	mdata->debug = 0;
 	mdata->shadows = 0;
-	mdata->x = 0;
-	mdata->y = 0;
+	reset_values(mdata);
 	mlx_do_key_autorepeatoff(mdata->mptr);
 	mlx_hook(mdata->wptr, KeyPress, KeyPressMask, &key_press, mdata);
 	mlx_hook(mdata->wptr, KeyRelease, KeyReleaseMask, &key_release, mdata);

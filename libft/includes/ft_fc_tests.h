@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/31 20:52:36 by sconso            #+#    #+#             */
-/*   Updated: 2013/12/31 20:53:27 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 19:47:45 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,4 +21,4 @@ int			ft_isprint(int c);
 int			ft_toupper(int c);
 int			ft_tolower(int c);
 
-#endif /* FT_FC_TESTS_H */
+#endif

@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/12 18:17:53 by sconso            #+#    #+#             */
-/*   Updated: 2014/01/12 18:17:56 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 19:49:40 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,4 @@ t_index			*ft_deleteindlist(t_index *list, unsigned int position);
 t_index			*ft_flushdlist(t_index *list);
 void			ft_readdlist(t_index *list, char direction);
 
-#endif /* FT_FC_DLIST_H */
+#endif

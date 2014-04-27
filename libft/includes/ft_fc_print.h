@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/31 20:53:52 by sconso            #+#    #+#             */
-/*   Updated: 2013/12/31 20:56:46 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 19:47:57 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,4 +22,4 @@ void		ft_putstr_fd(char const *s, int fd);
 void		ft_putendl_fd(char const *s, int fd);
 void		ft_putnbr_fd(int n, int fd);
 
-#endif /* FT_FC_PRINT_H */
+#endif

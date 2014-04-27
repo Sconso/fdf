@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/20 13:03:49 by sconso            #+#    #+#             */
-/*   Updated: 2013/11/25 17:37:38 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 19:44:46 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,6 @@ int		ft_strnequ(char const *s1, char const *s2, size_t n)
 	}
 	--i;
 	if (s1[i] != s2[i])
-			return (0);
+		return (0);
 	return (1);
 }

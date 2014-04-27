@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/31 20:50:46 by sconso            #+#    #+#             */
-/*   Updated: 2014/01/19 21:23:57 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 19:47:52 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,4 @@ char		*ft_strcleanjoin(char *s1, char const *s2);
 char		*ft_strtrim(char const *s);
 char		**ft_strsplit(char const *s, char c);
 
-#endif /* FT_FC_STR_H */
+#endif

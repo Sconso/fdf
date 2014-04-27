@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   hooks.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/04/27 15:25:40 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/04/27 15:51:34 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/04/27 19:40:26 by sconso            #+#    #+#             */
+/*   Updated: 2014/04/27 19:40:36 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int				expose(t_mdata *mdata)
 		mlx_destroy_image(mdata->mptr, mdata->iptr);
 	mdata->iptr = mlx_new_image(mdata->mptr, mdata->w, mdata->h);
 	mdata->idata = mlx_get_data_addr(mdata->iptr, &mdata->bpp,
-									 &mdata->sizeline, &mdata->endian);
+										&mdata->sizeline, &mdata->endian);
 	draw_map(mdata);
 	mlx_put_image_to_window(mdata->mptr, mdata->wptr, mdata->iptr, 0, 0);
 	if (mdata->debug)

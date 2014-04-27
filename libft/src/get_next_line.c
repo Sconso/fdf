@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/02 19:12:10 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/23 23:56:59 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 19:51:37 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,11 @@ char				*get_next_line(int const fd)
 	char			*size;
 	int				ret;
 
-	if (fd < 0 || BUFF_SIZE < 1)
+	if (fd < 0 || BUFF_SIZE < 1 || !(buf = ft_strnew(BUFF_SIZE + 1)))
 		return (ft_exit(&tmp));
 	tmp = (tmp ? tmp : ft_strdup(""));
-	if (!(buf = ft_strnew(BUFF_SIZE + 1)))
-		return (ft_exit(&tmp));
-	while (!(size = ft_strchr(tmp, '\n')) && (ret = read(fd, buf, BUFF_SIZE)))
+	while (!(size = ft_strchr(tmp, '\n'))
+			&& (ret = read(fd, buf, BUFF_SIZE)))
 	{
 		buf[ret] = 0;
 		tmp = ft_strcleanjoin(tmp, buf);

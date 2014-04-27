@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 20:39:26 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 16:07:46 by Myrkskog         ###   ########.fr       */
+/*   Updated: 2014/04/27 19:43:25 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,67 +22,20 @@
 # define LEFT (65361)
 # define UP (65362)
 # define DOWN (65364)
-# define MINUS (65453, 45)
-# define PLUS (65451, 61)
+# define MINUS (45)
+# define PLUS (61)
 # define W (119)
 # define A (97)
 # define S (115)
 # define D (100)
-# define NUM_0 (65456, 48)
-# define NUM_1 (65467, 49)
+# define NUM_0 (48)
+# define NUM_1 (49)
+# define NUMPAD_PLUS (65451)
+# define NUMPAD_MINUS (65453)
+# define NUMPAD_0 (65456)
+# define NUMPAD_1 (65457)
 
-typedef struct		s_keys
-{
-	char			right;
-	char			left;
-	char			up;
-	char			down;
-	char			more_height;
-	char			less_height;
-	char			more_angle;
-	char			less_angle;
-	char			zoom;
-	char			unzoom;
-}					t_keys;
-
-typedef struct		s_mdata
-{
-	void			*mptr;
-	void			*wptr;
-	void			*iptr;
-	char			*idata;
-	t_keys			*keys;
-	int				w;
-	int				h;
-	int				**map;
-	float			espace;
-	float			angle;
-	float			hauteur;
-	float			x;
-	float			y;
-	int				bpp;
-	int				sizeline;
-	int				endian;
-	char			debug;
-	char			shadows;
-}					t_mdata;
-
-typedef struct		s_vertex
-{
-	float			x;
-	float			y;
-	float			z;
-	float			w;
-	unsigned int	color;
-}					t_vertex;
-
-typedef struct		s_delta
-{
-	float			x1;
-	float			x2;
-	float			y1;
-	float			y2;
-}					t_delta;
+# include <structs.h>
 
 /*
 ** draw.c
@@ -144,7 +97,7 @@ t_mdata		*init_mlx(int **map, int userwidth, int userheight);
 /*
 ** key_manager.c
 */
-int		key_release(int keycode, t_mdata *mdata);
-int		key_press(int keycode, t_mdata *mdata);
+int			key_release(int keycode, t_mdata *mdata);
+int			key_press(int keycode, t_mdata *mdata);
 
 #endif

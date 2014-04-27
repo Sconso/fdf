@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/01/12 18:17:45 by sconso            #+#    #+#             */
-/*   Updated: 2014/01/12 18:17:50 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 19:48:09 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,4 @@ void		ft_lstadd(t_list **alst, t_list *new);
 void		ft_lstiter(t_list *lst, void (*f)(t_list *elem));
 t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem));
 
-#endif /* FT_FC_LIST_H */
+#endif

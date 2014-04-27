@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/11/19 10:55:53 by sconso            #+#    #+#             */
-/*   Updated: 2013/12/31 20:50:26 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 19:47:30 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,4 @@ int			ft_match(char *s1, char *s2);
 int			ft_nmatch(char *s1, char *s2);
 void		ft_swap(int *a, int *b);
 char		*ft_strrev(char *str);
-#endif /* LIBFT_H */
+#endif

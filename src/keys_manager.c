@@ -3,40 +3,39 @@
 /*                                                        :::      ::::::::   */
 /*   keys_manager.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Myrkskog <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/04/27 14:05:42 by Myrkskog          #+#    #+#             */
-/*   Updated: 2014/04/27 15:45:31 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/04/27 19:40:59 by sconso            #+#    #+#             */
+/*   Updated: 2014/04/27 19:57:00 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 #include <stdlib.h>
 
-
-#include <stdio.h>
-
 static int		one_shot(int keycode, t_mdata *mdata)
 {
 	if (keycode == ECHAP)
 		exit(0);
-	else if (keycode == NUM_0)
-	{
+	else if (keycode == NUM_0 || keycode == NUMPAD_0)
 		reset_values(mdata);
-		expose(mdata);
-	}
 	else if (keycode == SPACE)
-	{
 		mdata->debug = (mdata->debug ? 0 : 1);
-		expose(mdata);
-	}
-	else if (keycode == NUM_1)
-	{
+	else if (keycode == NUM_1 || keycode == NUMPAD_1)
 		mdata->shadows = (mdata->shadows ? 0 : 1);
-		expose(mdata);
+	else if (keycode == 47)
+	{
+		mdata->keys->more_angle = (mdata->keys->more_angle ? 0 : 1);
+		mdata->keys->less_angle = 0;
+	}
+	else if (keycode == 46)
+	{
+		mdata->keys->less_angle = (mdata->keys->less_angle ? 0 : 1);
+		mdata->keys->more_angle = 0;
 	}
 	else
 		return (0);
+	expose(mdata);
 	return (1);
 }
 
@@ -50,9 +49,9 @@ int				key_release(int keycode, t_mdata *mdata)
 		mdata->keys->more_height = 0;
 	else if (keycode == DOWN)
 		mdata->keys->less_height = 0;
-	if (keycode == PLUS)
+	if (keycode == PLUS || keycode == NUMPAD_PLUS)
 		mdata->keys->zoom = 0;
-	else if (keycode == MINUS)
+	else if (keycode == MINUS || keycode == NUMPAD_MINUS)
 		mdata->keys->unzoom = 0;
 	if (keycode == W)
 		mdata->keys->up = 0;
@@ -62,7 +61,6 @@ int				key_release(int keycode, t_mdata *mdata)
 		mdata->keys->left = 0;
 	else if (keycode == D)
 		mdata->keys->right = 0;
-	printf("%d\n", keycode);
 	return (0);
 }
 
@@ -78,9 +76,9 @@ int				key_press(int keycode, t_mdata *mdata)
 		mdata->keys->more_height = 1;
 	else if (keycode == DOWN)
 		mdata->keys->less_height = 1;
-	if (keycode == PLUS)
+	if (keycode == PLUS || keycode == NUMPAD_PLUS)
 		mdata->keys->zoom = 1;
-	else if (keycode == MINUS)
+	else if (keycode == MINUS || keycode == NUMPAD_MINUS)
 		mdata->keys->unzoom = 1;
 	if (keycode == W)
 		mdata->keys->up = 1;

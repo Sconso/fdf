@@ -5,32 +5,32 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2014/04/21 20:23:33 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 16:06:43 by Myrkskog         ###   ########.fr       */
+/*   Created: 2014/04/27 19:37:35 by sconso            #+#    #+#             */
+/*   Updated: 2014/04/27 19:57:55 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
 #include <mlx.h>
 #include <ft_fc_conversion.h>
-#include <stdio.h>
 
-
-
-
-
-void		debug(t_mdata *mdata)
+void		debug(t_mdata *md)
 {
-	mlx_string_put(mdata->mptr, mdata->wptr, mdata->w - 100, 20, 175000, "Espace: ");
-	mlx_string_put(mdata->mptr, mdata->wptr, mdata->w - 100, 30, 175000, "Angle: ");
-	mlx_string_put(mdata->mptr, mdata->wptr, mdata->w - 100, 40, 175000, "Hauteur: ");
-	mlx_string_put(mdata->mptr, mdata->wptr, mdata->w - 100, 50, 175000, "X: ");
-	mlx_string_put(mdata->mptr, mdata->wptr, mdata->w - 100, 60, 175000, "Y: ");
-	mlx_string_put(mdata->mptr, mdata->wptr, mdata->w - 20, 20, 175000, ft_itoa(mdata->espace));
-	mlx_string_put(mdata->mptr, mdata->wptr, mdata->w - 20, 30, 175000, ft_itoa(mdata->angle));
-	mlx_string_put(mdata->mptr, mdata->wptr, mdata->w - 20, 40, 175000, ft_itoa(mdata->hauteur));
-	mlx_string_put(mdata->mptr, mdata->wptr, mdata->w - 20, 50, 175000, ft_itoa(mdata->x));
-	mlx_string_put(mdata->mptr, mdata->wptr, mdata->w - 20, 60, 175000, ft_itoa(mdata->y));
+	mlx_string_put(md->mptr, md->wptr, md->w - 120, 20, 0xFF0000, "Espace: ");
+	mlx_string_put(md->mptr, md->wptr, md->w - 120, 30, 0xFF0000, "Angle: ");
+	mlx_string_put(md->mptr, md->wptr, md->w - 120, 40, 0xFF0000, "Hauteur: ");
+	mlx_string_put(md->mptr, md->wptr, md->w - 120, 50, 0xFF0000, "X: ");
+	mlx_string_put(md->mptr, md->wptr, md->w - 120, 60, 0xFF0000, "Y: ");
+	mlx_string_put(md->mptr, md->wptr, md->w - 40, 20, 0xFF0000,
+					ft_itoa(md->espace));
+	mlx_string_put(md->mptr, md->wptr, md->w - 40, 30, 0xFF0000,
+					ft_itoa(md->angle));
+	mlx_string_put(md->mptr, md->wptr, md->w - 40, 40, 0xFF0000,
+					ft_itoa(md->hauteur));
+	mlx_string_put(md->mptr, md->wptr, md->w - 40, 50, 0xFF0000,
+					ft_itoa(md->x));
+	mlx_string_put(md->mptr, md->wptr, md->w - 40, 60, 0xFF0000,
+					ft_itoa(md->y));
 }
 
 int			main(int ac, char **av)

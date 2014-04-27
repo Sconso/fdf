@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2013/12/31 20:48:11 by sconso            #+#    #+#             */
-/*   Updated: 2013/12/31 20:50:26 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 19:48:04 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,4 +25,4 @@ int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		*ft_memalloc(size_t size);
 void		ft_memdel(void **ap);
 
-#endif /* FT_FC_MEM_H */
+#endif

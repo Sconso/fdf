@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 21:12:33 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/26 20:46:38 by Myrkskog         ###   ########.fr       */
+/*   Updated: 2014/04/27 19:36:21 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <ft_fc_print.h>
 #include <get_next_line.h>
 #include <stdlib.h>
-#include <stdio.h>
+
 static int		get_elem_nb(char *str)
 {
 	int			nb;
