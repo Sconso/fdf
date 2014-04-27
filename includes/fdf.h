@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/21 20:39:26 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/24 00:14:39 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 02:57:27 by Myrkskog         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,22 +15,42 @@
 
 # define ESPACE (15)
 # define ANGLE (0)
-# define HAUTEUR (0)
+# define HAUTEUR (1)
+
+typedef struct		s_keys
+{
+	char			right;
+	char			left;
+	char			up;
+	char			down;
+	char			more_height;
+	char			less_height;
+	char			more_angle;
+	char			less_angle;
+	char			zoom;
+	char			unzoom;
+}					t_keys;
 
 typedef struct		s_mdata
 {
 	void			*mptr;
 	void			*wptr;
 	void			*iptr;
+	char			*idata;
+	t_keys			*keys;
 	int				w;
 	int				h;
 	int				**map;
-	int				espace;
-	int				angle;
+	float			espace;
+	float			angle;
 	float			hauteur;
 	float			x;
 	float			y;
+	int				bpp;
+	int				sizeline;
+	int				endian;
 	char			debug;
+	char			shadows;
 }					t_mdata;
 
 typedef struct		s_vertex
@@ -39,7 +59,7 @@ typedef struct		s_vertex
 	float			y;
 	float			z;
 	float			w;
-	float			color;
+	unsigned int	color;
 }					t_vertex;
 
 typedef struct		s_delta
