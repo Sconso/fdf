@@ -1,8 +1,8 @@
 fdf
 ===
-Move with WASD\n
-Change the height with UP and DOWN\n
-Change the view with LEFT and RIGHT\n
-Reset with 0\n
-Change the zoom with - and +\n
+Move with WASD<br />
+Change the height with UP and DOWN<br />
+Change the view with LEFT and RIGHT<br />
+Reset with 0<br />
+Change the zoom with - and +<br />
 Active/Desactive the shadows with 1
