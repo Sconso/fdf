@@ -9,5 +9,5 @@ Active/Desactive the shadows with 1<br />
 Z-Rotate with Numpad 8 and Numpad 2<br />
 Print some debug informations with SPACE<br />
 Exit with ESC<br />
-<br /><br />
+<br />
 And have fun !
