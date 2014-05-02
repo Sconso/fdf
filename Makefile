@@ -6,15 +6,15 @@
 #    By: sconso <sconso@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/01/12 18:13:08 by sconso            #+#    #+#              #
-#    Updated: 2014/04/27 19:35:39 by sconso           ###   ########.fr        #
+#    Updated: 2014/04/27 23:17:54 by sconso           ###   ########.fr        #
 #                                                                              #
 #******************************************************************************#
 
 NAME = fdf
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Werror -Wextra
-DFLAGS = -pedantic -ansi -g -ggdb
+DFLAGS = -pedantic -g -ggdb
 INC = -I includes/ -I libft/includes/
 LFLAGS = -L libft/ -lft -L/usr/lib -lmlx -L/usr/X11/lib -lXext -lX11
 

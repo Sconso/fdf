@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/27 19:40:46 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 22:21:59 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 23:15:56 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,8 @@ int				**ft_init(char *map)
 	int			fd;
 	int			**matrix;
 
-	ft_ext(map, ".fdf");
+	if (0)
+		ft_ext(map, ".fdf");
 	fd = ft_open(map, O_RDWR);
 	matrix = create_matrix(fd);
 	ft_close(fd);

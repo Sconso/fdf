@@ -6,11 +6,21 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/27 19:37:10 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 22:04:43 by sconso           ###   ########.fr       */
+/*   Updated: 2014/04/27 23:09:42 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fdf.h>
+
+static int		count_line(int *line)
+{
+	int			i;
+
+	i = 0;
+	while (line[i] != -999)
+		++i;
+	return (i);
+}
 
 static void		draw_map_x(t_mdata *mdata, int x, int y)
 {
@@ -67,7 +77,7 @@ void			draw_map(t_mdata *mdata)
 		{
 			if (mdata->map[y][x + 1] != -999)
 				draw_map_x(mdata, x, y);
-			if (mdata->map[y + 1])
+			if (mdata->map[y + 1] && x < count_line(mdata->map[y + 1]))
 				draw_map_y(mdata, x, y);
 		}
 	}
