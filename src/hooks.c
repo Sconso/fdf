@@ -6,7 +6,7 @@
 /*   By: sconso <sconso@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2014/04/27 19:40:26 by sconso            #+#    #+#             */
-/*   Updated: 2014/04/27 22:59:11 by sconso           ###   ########.fr       */
+/*   Updated: 2014/05/06 20:25:22 by sconso           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,12 +84,20 @@ static void		loop_move(t_mdata *mdata, char *check)
 int				loop(t_mdata *mdata)
 {
 	char		check;
+	char		state;
 
 	check = 0;
 	loop_transform(mdata, &check);
 	loop_rotate(mdata, &check);
 	loop_move(mdata, &check);
 	if (check)
+	{
+		state = mdata->shadows;
+		mdata->shadows = 0;
+		expose(mdata);
+		mdata->shadows = state;
+	}
+	else
 		expose(mdata);
 	return (0);
 }
